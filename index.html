@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -1341,6 +1341,160 @@
       background: var(--border);
       margin: 0 80px;
     }
+
+    /* ── GRAPHIC DESIGN SECTION ── */
+    .graphic-section {
+      background: var(--bg);
+      padding: 0 80px 120px 80px;
+      position: relative;
+    }
+    
+    .graphic-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+      margin-top: 40px;
+    }
+    
+    .graphic-card {
+      position: relative;
+      border-radius: 24px;
+      overflow: hidden;
+      background: #0d0f10;
+      border: 1px solid var(--border);
+      transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), 
+                  border-color 0.4s ease, 
+                  box-shadow 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+      cursor: pointer;
+      aspect-ratio: 1 / 1.414; /* A4 aspect ratio */
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .graphic-img-container {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .graphic-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.55; /* Default low opacity */
+      transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), 
+                  transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), 
+                  filter 0.6s ease;
+      filter: grayscale(20%) brightness(90%);
+    }
+    
+    .graphic-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0, 3, 4, 0.95) 0%, rgba(0, 3, 4, 0.4) 50%, rgba(0, 3, 4, 0) 100%);
+      padding: 32px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      opacity: 0; /* Hidden by default */
+      transform: translateY(15px);
+      transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1), 
+                  transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+      pointer-events: none;
+      z-index: 2;
+    }
+    
+    .graphic-category {
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--accent);
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+    
+    .graphic-title {
+      font-family: sans-serif;
+      font-size: 24px;
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 12px;
+      color: var(--white);
+      letter-spacing: -0.01em;
+    }
+    
+    .graphic-desc {
+      font-size: 13px;
+      line-height: 1.6;
+      color: rgba(255, 255, 255, 0.6);
+      font-weight: 300;
+    }
+    
+    /* Interactive Hover Animations */
+    .graphic-card:hover {
+      transform: translateY(-8px);
+      border-color: var(--border-accent);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6), 
+                  0 0 30px rgba(0, 229, 255, 0.15);
+    }
+    
+    .graphic-card:hover img {
+      opacity: 1; /* High opacity on hover */
+      transform: scale(1.05); /* Zoom image slightly */
+      filter: grayscale(0%) brightness(100%);
+    }
+    
+    .graphic-card:hover .graphic-overlay {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    /* Responsive styling */
+    @media (max-width: 1200px) {
+      .graphic-section {
+        padding: 0 60px 100px 60px;
+      }
+    }
+    
+    @media (max-width: 992px) {
+      .graphic-grid {
+        gap: 24px;
+      }
+      .graphic-overlay {
+        padding: 24px;
+      }
+      .graphic-title {
+        font-size: 20px;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .graphic-section {
+        padding: 0 40px 80px 40px;
+      }
+      .graphic-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+      .graphic-card {
+        aspect-ratio: 1 / 1.4;
+      }
+    }
+    
+    @media (max-width: 576px) {
+      .graphic-section {
+        padding: 0 24px 60px 24px;
+      }
+      .graphic-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+      .graphic-card {
+        aspect-ratio: 1 / 1.35;
+        max-width: 400px;
+        margin: 0 auto;
+      }
+    }
   </style>
 </head>
 
@@ -1353,6 +1507,7 @@
       <li><a href="#about">About</a></li>
       <li><a href="#process">Process</a></li>
       <li><a href="#projects">Projects</a></li>
+      <li><a href="#graphic-design">Graphics</a></li>
       <li><a href="#skills">Skills</a></li>
       <li><a href="mailto:akshayukkuda6@gmail.com" class="nav-cta">Hire Me →</a></li>
     </ul>
@@ -1607,6 +1762,49 @@
     </div>
   </section>
 
+  <!-- GRAPHIC DESIGN -->
+  <section class="graphic-section" id="graphic-design">
+    <div class="section-label">Creative Gallery</div>
+    <h2 class="section-title">Graphic Design</h2>
+
+    <div class="graphic-grid">
+      <!-- Jawa Bobber Card -->
+      <div class="graphic-card">
+        <div class="graphic-img-container">
+          <img src="img/jawa_bobber.png" alt="JAWA Bobber 42 Poster Design">
+          <div class="graphic-overlay">
+            <span class="graphic-category">Poster Design</span>
+            <h3 class="graphic-title">JAWA Bobber 42</h3>
+            <p class="graphic-desc">Automotive poster design capturing the dark, bold, and muscular aesthetics of the JAWA Bobber 42.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- RE Interceptor Card -->
+      <div class="graphic-card">
+        <div class="graphic-img-container">
+          <img src="img/interceptor_650.png" alt="Royal Enfield Interceptor 650 Poster Design">
+          <div class="graphic-overlay">
+            <span class="graphic-category">Poster Design</span>
+            <h3 class="graphic-title">RE Interceptor 650</h3>
+            <p class="graphic-desc">Clean, lifestyle-oriented poster styling showcasing the Royal Enfield Interceptor 650.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Dodge Challenger Card -->
+      <div class="graphic-card">
+        <div class="graphic-img-container">
+          <img src="img/dodge_challenger.jpg" alt="Dodge Challenger Poster Design">
+          <div class="graphic-overlay">
+            <span class="graphic-category">Poster Design</span>
+            <h3 class="graphic-title">Dodge Challenger</h3>
+            <p class="graphic-desc">Retro-inspired, high-contrast grimy texture design for the iconic American muscle car.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <!-- SKILLS -->
   <section class="skills-section" id="skills">
